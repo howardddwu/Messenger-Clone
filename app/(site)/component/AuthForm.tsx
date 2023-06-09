@@ -6,6 +6,7 @@ import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import AuthSocialButton from "./AuthSocialButton";
 import { BsGithub, BsGoogle } from "react-icons/bs";
+import axios from "axios";
 
 const AuthForm = () => {
   const [variant, setVariant] = useState(true); // true is LOGIN, false is REGISTER
@@ -31,6 +32,7 @@ const AuthForm = () => {
     setIsLoading(true);
     if (variant === false) {
       //Axios Register
+      axios.post("/api/register", data);
     }
 
     if (variant === true) {
